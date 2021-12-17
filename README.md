@@ -11,7 +11,8 @@ This is a softare and hardare project that is intended to be run on a Raspberry 
 | 200-299 Watts | Violet |
 | 300-399 Watts | Red |
 | 400-499 Watts | Orange |
-| 500+ Watts | Yellow |
+| 500599 Watts | Yellow |
+| 600+ Watts | Party mode/Surprise |
 
 ## Installation
 
