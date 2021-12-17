@@ -1,6 +1,6 @@
 # kickr-rpi-ws281x
 
-This project is meant to be run on a Raspberry Pi, and allows you to control an LED light strip using the power output from a Wahoo KICKR trainer (over the ANT+ protocol.
+This project is meant to be run on a Raspberry Pi, and allows you to control an LED light strip using the power output from a Wahoo KICKR trainer over the ANT+ protocol.
 
 | Watts | LED Color |
 | --- | ----------- |
