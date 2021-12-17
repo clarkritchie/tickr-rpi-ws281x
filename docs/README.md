@@ -8,7 +8,7 @@
 ## Hardware
 
 - My [Amazon List](https://www.amazon.com/hz/wishlist/ls/382JJL74JTTD9?ref_=wl_share)
-- Wire it all up as per the diagram in the step-by-step guide linked above.
+- Wire it all up as per the diagram in the step-by-step guide linked above
 
 ## Software
 
