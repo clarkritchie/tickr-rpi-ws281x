@@ -1,11 +1,11 @@
 ## Links
 
-- [How to use WS2812B RGB LEDs with Raspberry Pi](https://www.youtube.com/watch?v=Pxt9sGTsvFk)
-- [WS2812 / NeoPixel Addressable LEDs: Raspberry Pi Quickstart Guide](https://core-electronics.com.au/tutorials/ws2812-addressable-leds-raspberry-pi-quickstart-guide.html)
+- Video: [How to use WS2812B RGB LEDs with Raspberry Pi](https://www.youtube.com/watch?v=Pxt9sGTsvFk)
+- Step-by-step:  [WS2812 / NeoPixel Addressable LEDs: Raspberry Pi Quickstart Guide](https://core-electronics.com.au/tutorials/ws2812-addressable-leds-raspberry-pi-quickstart-guide.html)
 
 ## Hardware
 
-I got everything off Amazon.
+See this Amazon wish list:
 
 - [Shopping List](https://www.amazon.com/hz/wishlist/ls/382JJL74JTTD9?ref_=wl_share)
 
@@ -13,10 +13,13 @@ I got everything off Amazon.
 
 ### ANT+ Client
 
+Use the `libant` to enable the ANT+ dongle to communicate with the KICKR.
+
 - [libant](https://github.com/half2me/libant)
 
-
 ### Programmable LEDs
+
+Install the programmable LED software and demo script onto the Raspberry Pi.
 
 ```
 #!/bin/bash
@@ -44,6 +47,8 @@ cd python
 sudo python setup.py install
 cd
 ```
+
+Easier version:
 
 ```
 curl -L http://coreelec.io/33 | bash
