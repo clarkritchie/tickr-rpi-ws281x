@@ -14,6 +14,13 @@ Note:  The wires will sag over time and the springs in the breadboards are simpl
 
 ## Software
 
+### BLE
+
+- [RPi Bluetooth LE](https://elinux.org/RPi_Bluetooth_LE)
+
+### ANT+ Drivers
+- [Link](https://opensource.quarq.com/ant_usb2_stick/)
+
 ### ANT+ Clients
 
 Packages that enable ANT+ dongles on the Raspberry Pi.
