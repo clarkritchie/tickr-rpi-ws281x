@@ -14,11 +14,12 @@ Note:  The wires will sag over time and the springs in the breadboards are simpl
 
 ## Software
 
-### Python ANT+ Client
+### ANT+ Clients
 
-Use the `libant` to enable the ANT+ dongle to allow the Raspberry Pi communicate with the KICKR over ANT+.
+Packages that enable ANT+ dongles on the Raspberry Pi.
 
-- [libant](https://github.com/half2me/libant)
+- Python [libant](https://github.com/half2me/libant)
+- Go [antgo](https://github.com/half2me/antgo)
 
 ### Python Programmable LED Demo
 
