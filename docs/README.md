@@ -5,9 +5,8 @@
 
 ## Hardware
 
-See this Amazon wish list:
-
-- [Shopping List](https://www.amazon.com/hz/wishlist/ls/382JJL74JTTD9?ref_=wl_share)
+- My [Amazon List](https://www.amazon.com/hz/wishlist/ls/382JJL74JTTD9?ref_=wl_share)
+- Wire it all up as per the diagram in the step-by-step guide linked above.
 
 ## Software
 
@@ -19,7 +18,7 @@ Use the `libant` to enable the ANT+ dongle to communicate with the KICKR.
 
 ### Programmable LEDs
 
-Install the programmable LED software and demo script onto the Raspberry Pi.
+Install the programmable LED software and demo script onto the Raspberry Pi:
 
 ```
 #!/bin/bash
@@ -48,7 +47,7 @@ sudo python setup.py install
 cd
 ```
 
-Easier version:
+Easier one-liner:
 
 ```
 curl -L http://coreelec.io/33 | bash
