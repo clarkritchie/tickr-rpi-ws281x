@@ -10,6 +10,8 @@
 - My [Amazon List](https://www.amazon.com/hz/wishlist/ls/382JJL74JTTD9?ref_=wl_share)
 - Wire it all up as per the diagram in the step-by-step guide linked above
 
+Note:  The wires will sag over time and the springs in the breadboards are simply weak.  When they stay in tension over time, the metal will relax.  For long term use, invest in a wire wrap tool.  See also [Introduction to Wire Wrap](https://www.youtube.com/watch?v=IXvEDM-m9CE).
+
 ## Software
 
 ### ANT+ Client
