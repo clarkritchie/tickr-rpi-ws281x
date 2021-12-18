@@ -17,6 +17,7 @@ Note:  The wires will sag over time and the springs in the breadboards are simpl
 ### BLE
 
 - [RPi Bluetooth LE](https://elinux.org/RPi_Bluetooth_LE)
+- bluepy [API docs](https://ianharvey.github.io/bluepy-doc/index.html) and [source code](https://github.com/IanHarvey/bluepy)
 
 ### ANT+ Drivers
 - [Link](https://opensource.quarq.com/ant_usb2_stick/)
