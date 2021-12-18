@@ -2,7 +2,9 @@
 
 ## Overview
 
-This is a softare and hardare project that is intended to be run on a Raspberry Pi 3.  Its purpose in life is to allow the user to control a programmable LED light strip using the power output from a Wahoo KICKR trainer over either the BLE or ANT+ protocols (to be decided).  In other words, if you pedal easy, the LEDs will be green, but if pedal hard the LEDs will turn red, orange or even yellow.
+This is small software + hardware project for use on a Raspberry Pi 3.
+
+Its purpose in life is to allow the user to control a programmable LED light strip using the power output from a Wahoo KICKR trainer (or TICKR Heart rate monitor) over BLE.  In other words, if you pedal easy, the LEDs will be green, but if pedal hard the LEDs will turn red, orange or even yellow.
 
 | Watts | LED Color |
 | --- | ----------- |
