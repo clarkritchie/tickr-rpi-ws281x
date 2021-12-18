@@ -4,13 +4,20 @@ import argparse
 from singleton import Singleton
 
 @Singleton
+class Strand:
+    def do_stuff(self, data):
+        print(data)
+    def __init__(self):
+        print("Strand constructor")
+
+@Singleton
 class Tickr:
     def sample_data(self):
         value = {
             "value": random.randint(50, 180)
         }
         # Dictionary to JSON Object using dumps() method, returns JSON
-        return json.dumps(value)
+        return value
     def __init__(self):
         print("TICKR constructor")
 
@@ -28,9 +35,8 @@ if __name__ == '__main__':
     try:
         while True:
             tickr = Tickr.instance() # Good. Being explicit is in line with the Python Zen
-#             g = Foo.instance() # Returns already created instance
-#             print(f is g)
-            print(tickr.sample_data())
+            strand = Strand.instance()
+            strand.do_stuff(tickr.sample_data())
             time.sleep(1)
 
     except KeyboardInterrupt:
