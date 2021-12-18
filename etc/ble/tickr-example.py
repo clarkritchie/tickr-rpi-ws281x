@@ -8,7 +8,7 @@
 # receive data and print it out
 
 import sys
-from bluepy import btle, BTLEException
+from bluepy import btle
 
 # maximum number of subscription polls
 MAX=10
@@ -48,7 +48,7 @@ for service in peripheral.getServices():
                 setup_data = b"\x01\x00"
                 notify_handle = characteristic.getHandle()
                 peripheral.writeCharacteristic(notify_handle+1, setup_data, withResponse=True)
-            except BTLEException:
+            except btle.BTLEException:
                 print("BTLEException raised writing characteristic")
 
         if characteristic.supportsRead():
