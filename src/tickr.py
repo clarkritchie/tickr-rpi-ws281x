@@ -6,7 +6,6 @@ from singleton import Singleton
 from bluepy import btle
 
 class TickrDelegate(btle.DefaultDelegate):
-
     data = None
     def __init__(self):
         btle.DefaultDelegate.__init__(self)
@@ -25,9 +24,11 @@ class TickrDelegate(btle.DefaultDelegate):
 @Singleton
 class Tickr:
 
+    th = None
     beats = 0
     deviceAddress = ""
     peripheral = None
+    fetch_data = False
     HRM_UUID = "00002a37-0000-1000-8000-00805f9b34fb"
 
     def connect(self, address):
@@ -35,7 +36,7 @@ class Tickr:
         self.deviceAddress = address
         self.peripheral = btle.Peripheral(self.deviceAddress, btle.ADDR_TYPE_RANDOM)
 
-    def subscribe(self):
+    def _subscribe(self):
         logging.debug("Subscribing to BTLE device")
 
         for service in self.peripheral.getServices():
@@ -60,7 +61,7 @@ class Tickr:
                             delegate = TickrDelegate()
                             self.peripheral.withDelegate(delegate)
 
-                            while True:
+                            while self.fetch_data:
                                 if self.peripheral.waitForNotifications(1.0):
                                     self.beats = delegate.get_data()
                                     logging.info("Beats are %s" % self.beats)
@@ -71,7 +72,17 @@ class Tickr:
                         except btle.BTLEException:
                             logging.debug("BTLEException raised writing characteristic")
 
+    def subscribe(self):
+        self.fetch_data = True
+        self.th = threading.Thread(target=self._subscribe, daemon=True)
+        self.th.start()
+
     def disconnect(self):
+        logging.debug(f"Disconnecting...")
+        logging.debug(f"is thread alive? {self.th.is_alive()}")
+        self.fetch_data = False
+        self.th.join()
+        logging.debug(f"is thread still alive? {self.th.is_alive()}")
         logging.info("Disconnecting from: %s" % self.deviceAddress)
         self.peripheral.disconnect()
 
