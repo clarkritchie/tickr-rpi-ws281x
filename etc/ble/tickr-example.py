@@ -13,13 +13,13 @@ from bluepy import btle
 # maximum number of subscription polls
 MAX=10
 
-class TICKRDelegate(btle.DefaultDelegate):
+class TickrDelegate(btle.DefaultDelegate):
     def __init__(self):
         btle.DefaultDelegate.__init__(self)
 
     def handleNotification(self, cHandle, data):
         print("A notification was received: %s" % data)
-        # TICKR heart rate data is the second item
+        # heart rate data is the second item
         if len(data) >= 1:
             print("Heart rate is: %i" % int(data[1]))
 
@@ -59,7 +59,7 @@ for service in peripheral.getServices():
                 print("Characteristic is not UTF-8")
         print("\n")
 
-peripheral.withDelegate(TICKRDelegate())
+peripheral.withDelegate(TickrDelegate())
 for i in range(MAX):
     if peripheral.waitForNotifications(1.0):
         continue
