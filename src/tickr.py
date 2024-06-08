@@ -11,11 +11,11 @@ class TickrDelegate(btle.DefaultDelegate):
         btle.DefaultDelegate.__init__(self)
 
     def handleNotification(self, cHandle, data):
-        logging.debug("A notification was received: %s" % data)
+#         logging.debug("A notification was received: %s" % data)
         # heart rate data is the second item
         if len(data) >= 1:
             beats = int(data[1])
-            logging.debug("Heart rate is: %i" % beats)
+            logging.debug(f"Heart rate is {beats}")
             self.data = beats
 
     def get_data(self):
@@ -32,21 +32,21 @@ class Tickr:
     HRM_UUID = "00002a37-0000-1000-8000-00805f9b34fb"
 
     def connect(self, address):
-        logging.debug("Connecting to: %s" % address)
+        logging.debug(f"Connecting to: {address}")
         self.deviceAddress = address
         self.peripheral = btle.Peripheral(self.deviceAddress, btle.ADDR_TYPE_RANDOM)
 
     def _subscribe(self):
-        logging.debug("Subscribing to BTLE device")
+        logging.debug("Subscribing to BLE device")
 
         for service in self.peripheral.getServices():
 #             logging.debug(str(service))
-#             logging.debug("UUID for this service: %s" % service.uuid)
+#             logging.debug(f"UUID for this service: {service.uuid}")
              # Returns List of Characteristic objects, each represents a short data item which can be read or written
             for characteristic in service.getCharacteristics():
                 if "NOTIFY" in characteristic.propertiesToString():
 #                     logging.debug("Characteristic: %s" % str(characteristic))
-#                     logging.debug("  UUID: %s" % characteristic.uuid)
+#                     logging.debug(f"  UUID: {characteristic.uuid}")
 #                     logging.debug("  Properties: %s" % characteristic.propertiesToString())
 
                     # TODO revisit this
@@ -64,7 +64,7 @@ class Tickr:
                             while self.fetch_data:
                                 if self.peripheral.waitForNotifications(1.0):
                                     self.beats = delegate.get_data()
-                                    logging.info("Beats are %s" % self.beats)
+                                    logging.info(f"Beats are {self.beats}")
                                     continue
                                 else:
                                     logging.debug("Waiting...")
@@ -83,7 +83,7 @@ class Tickr:
         self.fetch_data = False
         self.th.join()
         logging.debug(f"is thread still alive? {self.th.is_alive()}")
-        logging.info("Disconnecting from: %s" % self.deviceAddress)
+        logging.info(f"Disconnecting from: {self.deviceAddress}")
         self.peripheral.disconnect()
 
     def get_heart_rate(self):
