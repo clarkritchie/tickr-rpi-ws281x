@@ -1,4 +1,4 @@
-# kickr-rpi-ws281x
+# tickr-rpi-ws281x
 
 ## Overview
 
